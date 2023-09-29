@@ -77,8 +77,8 @@ class ItemRes(Resource):
         if(Order.query.filter_by(id=order_id).first() is None):
             abort(404, message="order with this ID doesn't exist!")
         item = Item.query.filter_by(id=item_id).first()
-        if(item  is None):
-            abort(400, message="item with this ID doesn't exist!")
+        if(item is None):
+            abort(404, message="item with this ID doesn't exist!")
         return item
 
     @marshal_with(item_fields)
